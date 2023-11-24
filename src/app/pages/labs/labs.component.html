@@ -1,0 +1,22 @@
+<h1>Hola, Este es mi primer Proyecto en Angualr</h1>
+<p>{{welcome}}</p>
+<ul>
+  <li *ngFor="let task of tasks" >
+  {{task}}
+  </li>
+</ul>
+<hr>
+<h2>{{'hola'.repeat(4)}}</h2>
+<p>la suma de 3 + 3 = {{3+3}}</p>
+<hr>
+<p>hola mi nombre es {{name}} y tengo {{age}} años</p>
+<hr>
+<img [src]="img" alt="">
+<input type="text" [value]="name">
+<button [disabled]="disabled">click me</button>
+<p>Person: {{person.name}}</p>
+<p>Age: {{person.age}}</p>
+<p>Avatar: {{person.avatar}}</p>
+<hr>
+<button (click)="clcickhandler()">Click Me</button>
+<button (dblclick) ="clcickhandler()">Double Me</button>
