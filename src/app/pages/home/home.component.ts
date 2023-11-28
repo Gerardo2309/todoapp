@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -9,5 +9,23 @@ import { CommonModule } from '@angular/common';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+
+  tasks = signal([
+    'Instalar angular',
+    'Crear Proyecto',
+    'Crear Componentes',
+    'Crear aplicacion de tareas'
+  ]);
+
+  changeHandler(event: Event){
+    const input = event.target as HTMLInputElement;
+    const newtask =  input.value;
+    this.tasks.update((tasks) => [...tasks, newtask]);
+  }
+
+  deletTask (index: number){
+this.tasks.update((tasks) => tasks.filter((task,position) => position !== index));
+  }
+
 
 }

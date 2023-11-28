@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -16,10 +16,16 @@ export class LabsComponent {
     'Crear Componentes'
   ];
 
-  name = "Gerardo";
+  tasks2 = signal([
+    'Instalar angular',
+    'Crear Proyecto',
+    'Crear Componentes'
+  ]);
+
+  name = signal("Gerardo");
   age = 23;
   disabled = true;
-  img = 'https://w3schools.com/howto/img_avatar.png' ;
+  img = 'https://w3schools.com/howto/img_avatar.png';
 
   person = {
     name: 'pedro',
@@ -27,7 +33,21 @@ export class LabsComponent {
     avatar: 'https://w3schools.com/howto/img_avatar.png'
   }
 
-  clcickhandler(){
+  clcickhandler() {
     alert('Hola Gracias por hacer click')
   }
+
+  changehandler(event: Event) {
+    const input = event.target as HTMLInputElement;
+    const newvallue =input.value;
+    this.name.set(newvallue)
+    console.log(input.value);
+
+  }
+
+  keydownhandler(event: KeyboardEvent) {
+    const input = event.target as HTMLInputElement;
+    console.log(input.value);
+  }
+
 }

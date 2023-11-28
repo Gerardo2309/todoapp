@@ -1,22 +1,49 @@
-<h1>Hola, Este es mi primer Proyecto en Angualr</h1>
-<p>{{welcome}}</p>
-<ul>
-  <li *ngFor="let task of tasks" >
-  {{task}}
-  </li>
-</ul>
-<hr>
-<h2>{{'hola'.repeat(4)}}</h2>
-<p>la suma de 3 + 3 = {{3+3}}</p>
-<hr>
-<p>hola mi nombre es {{name}} y tengo {{age}} años</p>
-<hr>
-<img [src]="img" alt="">
-<input type="text" [value]="name">
-<button [disabled]="disabled">click me</button>
-<p>Person: {{person.name}}</p>
-<p>Age: {{person.age}}</p>
-<p>Avatar: {{person.avatar}}</p>
-<hr>
-<button (click)="clcickhandler()">Click Me</button>
-<button (dblclick) ="clcickhandler()">Double Me</button>
+<div class="container">
+  <h1>Hola, Este es mi primer Proyecto en Angualr</h1>
+  <p>{{welcome}}</p>
+  <ul>
+    <li *ngFor="let task of tasks">
+      {{task}}
+    </li>
+  </ul>
+  <hr>
+  <h2>{{'hola'.repeat(4)}}</h2>
+  <p>la suma de 3 + 3 = {{3+3}}</p>
+  <hr>
+  <p>hola mi nombre es {{name()}} y tengo {{age}} años</p>
+  <hr>
+  <img [src]="img" alt="">
+  <input type="text" [value]="name()">
+  <button [disabled]="disabled">click me</button>
+  <p>Person: {{person.name}}</p>
+  <p>Age: {{person.age}}</p>
+  <p>Avatar: {{person.avatar}}</p>
+  <hr>
+  <button (click)="clcickhandler()">Click Me</button>
+  <button (dblclick)="clcickhandler()">Double Me</button>
+  <hr>
+  <p>(change)</p>
+  <input type="number" [value]="person.age" (change)="changehandler($event)">
+  <hr>
+  <p>(change)</p>
+  <input type="text" [value]="person.name" (keydown)="changehandler($event)">
+  <hr>
+  <p>(keydown)</p>
+  <input type="text" [value]="person.name" (keydown)="keydownhandler($event)">
+  <hr>
+  <p>(keydown Shift )</p>
+  <input type="text" [value]="person.name" (keydown.shift.t)="clcickhandler()">
+  <hr>
+  <p>Total {{tasks2().length}}</p>
+  <ul>
+    <li *ngFor="let task of tasks2(); index as i">
+      {{i}} {{task}}
+    </li>
+  </ul>
+  <h1>Signals</h1>
+  <input type="text" [value]="name()" (change)="changehandler($event)">
+  <p>name: {{name()}}</p>
+
+
+
+</div>
